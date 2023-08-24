@@ -15,11 +15,11 @@
             @if($quiz)
             <form class="card" method="post" action="{{route('survey.chartrev')}}">
             @csrf
-            <input type="hidden" name="email" value="{{$email}}">
+            <input type="hidden" name="role" value="{{$role}}">
                 <?php $no = 1; ?>
                 @foreach($quiz as $q)
-                <div class="card-footer text-end"></div> 
-                <div class="card-body">                   
+                <div class="card-footer text-end"></div>
+                <div class="card-body">
                     <div class="px-4" action="">
                         <h2 >{{$q['quiz']}}</h2>
                         <p class="text-center"><strong>Jawaban Anda:</strong></p>
@@ -55,13 +55,13 @@
                         </div>
                     </div>
                 </div>
-                <?php $no++; ?>  
+                <?php $no++; ?>
                 @endforeach
-                <div class="card-footer text-end">                 
-                    <button id="simpan" class="btn custom-btn" onclick="simpan()">Simpan</button>  
-                </div>    
+                <div class="card-footer text-end">
+                    <button id="simpan" class="btn custom-btn" onclick="simpan()">Simpan</button>
+                </div>
             </form>
-            @endif  
+            @endif
         </div>
     </div><!-- container -->
 </div><!-- content -->

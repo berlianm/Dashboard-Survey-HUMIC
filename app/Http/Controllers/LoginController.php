@@ -11,9 +11,13 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
 
 class LoginController extends Controller
-{    
+{
     public function index()
-    {             
-        return view('login');             
-    }  
+    {
+        return view('login');
+    }
+
+    public function role(){
+        return view('role');
+    }
 }
