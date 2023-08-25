@@ -48,28 +48,47 @@
 
     <div class="content content-fixed content-auth">
         <div class="container">
-            <div class="media align-items-stretch justify-content-center ht-100p pos-relative">
-                <div class="media-body align-items-center d-none d-lg-flex">
-                    <div class="mx-wd-600">
+            <div class="row">
+                <div class="col align-self-center">
+                    <div class="col-md-4 px-0">
                         <img src="{{asset('assets/img/bg.png')}}" class="img-fluid" alt="">
                     </div>
-                </div><!-- media-body -->
-                <form class="" method="POST" action="{{ route('survey.index') }}">
-                    @csrf
-                    <div class="sign-wrapper mg-lg-l-50 mg-xl-l-60">
-                        <div class="wd-100p">
-                            <h3 class="tx-color-01 mg-b-5">Dashboard HUMIC Survey</h3>
-                            <p class="tx-color-03 tx-16 mg-b-40">Selamat Datang! Harap mengisi alamat email untuk melanjutkan survey.</p>
-                            <div class="form-group">
-                                <label>Email </label>
-                                <input type="email" class="form-control" placeholder="yourname@yourmail.com" name="email">
-                            </div>
+                    <h3 class="text-center"><strong>SURVEY DASHBOARD</strong></h3>
+                    <div class="media align-items-stretch justify-content-center ht-100p pos-relative">
+                        <div class="text-center">
+                            <form class="" method="POST" action="{{ route('survey.roleDosen') }}">
+                                @csrf
+                                <div class="sign-wrapper ">
+                                    <div class="wd-80p mt-2">
+                                        <button type="submit" class="btn btn-brand-02 btn-block custom-btn"><strong>DOSEN</strong></button>
 
-                            <button type="submit" class="btn btn-brand-02 btn-block custom-btn">Mulai</button>
+                                    </div>
+                                </div><!-- sign-wrapper -->
+                            </form>
+                            <form class="" method="POST" action="{{ route('survey.roleMahasiswa') }}">
+                                @csrf
+                                <div class="sign-wrapper ">
+                                    <div class="wd-80p mt-2">
+                                    
+                                        <button type="submit" class="btn btn-brand-02 btn-block custom-btn"><strong>MAHASISWA</strong></button>
+
+                                    </div>
+                                </div><!-- sign-wrapper -->
+                            </form>
+                            <form class="" method="POST" action="{{ route('survey.roleTamu') }}">
+                                @csrf
+                                <div class="sign-wrapper ">
+                                    <div class="wd-80p mt-2">
+                                        <button type="submit" class="btn btn-brand-02 btn-block custom-btn"><strong>TAMU</strong></button>
+
+                                    </div>
+                                </div><!-- sign-wrapper -->
+                            </form>
                         </div>
-                    </div><!-- sign-wrapper -->
-                </form>
-            </div><!-- media -->
+                    </div><!-- media -->
+                </div>
+
+            </div>
         </div><!-- container -->
     </div><!-- content -->
     <footer class="footer">
@@ -97,3 +116,4 @@
 </body>
 
 </html>
+

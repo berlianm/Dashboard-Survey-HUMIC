@@ -11,44 +11,74 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
 
-class SurveyController extends Controller{    
-    public function index(Request $request){     
-          if($request->email !=null){              
+class SurveyController extends Controller{
+    public function index(Request $request){
+          if($request->email !=null){
                $email = $request->email;
-              
-               $countQuiz =  Quiz::all()->count();
-               $quiz = Quiz::all()->toArray();
-               $exam = DB::table('exam')->select('*')->where('email', $email); 
-              
-               return view('layout.header',compact('email')).view('quiz',compact('email','exam','quiz','countQuiz')).view('layout.footer');       
+               session(['email' => $email]);
+               return view('role');
           }else{
                return back()->with('error', 'Harap masukkan data anda kembali!.');
           }
-          
-    }  
-    public function indexrev(Request $request){     
-          if($request->email !=null){              
-               $email = $request->email;
-              
-               $countQuiz =  Quiz::all()->count();
-               $quiz = Quiz::all()->toArray();
-               $exam = DB::table('exam')->select('*')->where('email', $email);               
-               return view('layout.header',compact('email')).view('quizrev',compact('email','exam','quiz','countQuiz')).view('layout.footer');       
-          }else{
-               return back()->with('error', 'Harap masukkan data anda kembali!.');
-          }
-          
-    }  
 
-     public function chart($email=null){      
-              
+    }
+
+    public function roleDosen(){
+          $role = "DOSEN";
+
+          $email = session('email');
+
+          $countQuiz =  Quiz::all()->where('role', $role)->count();
+          $quiz = Quiz::all()->where('role', $role)->toArray();
+          $exam = DB::table('exam')->select('*')->where('email', $email);
+          return view('layout.header',compact('email')).view('quizrev',compact('role','exam','quiz','countQuiz')).view('layout.footer');
+    }
+
+    public function roleMahasiswa(){
+          $role = "MAHASISWA";
+
+          $email = session('email');
+
+          $countQuiz =  Quiz::all()->where('role', $role)->count();
+          $quiz = Quiz::all()->where('role', $role)->toArray();
+          $exam = DB::table('exam')->select('*')->where('email', $email);
+          return view('layout.header',compact('email')).view('quizrev',compact('role','exam','quiz','countQuiz')).view('layout.footer');
+    }
+    public function roleTamu(){
+          
+          $role = "TAMU";
+
+          $email = session('email');
+
+          $countQuiz =  Quiz::all()->where('role', $role)->count();
+          $quiz = Quiz::all()->where('role', $role)->toArray();
+          $exam = DB::table('exam')->select('*')->where('email', $email);
+          return view('layout.header',compact('email')).view('quizrev',compact('role','exam','quiz','countQuiz')).view('layout.footer');
+    }
+
+    public function indexrev(Request $request){
+          if($request->email !=null ){
+               $email = $request->email;
+
+               $countQuiz =  Quiz::all()->count();
+               $quiz = Quiz::all()->where('role', 'DOSEN')->toArray();
+               $exam = DB::table('exam')->select('*')->where('email', $email);
+               return view('layout.header',compact('email')).view('quizrev',compact('email','exam','quiz','countQuiz')).view('layout.footer');
+          }else{
+               return back()->with('error', 'Harap masukkan data anda kembali!.');
+          }
+
+    }
+
+     public function chart($email=null){
+
           $countQuiz =  Quiz::all()->count();
           $sangat_baik = 0;
           $baik     = 0;
           $cukup    = 0;
           $buruk    = 0;
           $sangat_buruk = 0;
-          $exam = DB::table('exam')->select('*')->where('email', $email)->get(); 
+          $exam = DB::table('exam')->select('*')->where('email', $email)->get();
           $charts = [];
           $quizId =[];
           $answer =[];
@@ -68,33 +98,35 @@ class SurveyController extends Controller{
                'cukup'        => ($cukup / $countQuiz) *100,
                'buruk'        => ($buruk / $countQuiz) *100,
                'sangat_buruk' => ($sangat_buruk / $countQuiz) *100
-          ];         
-          return view('layout.header',compact('email')).view('chart',compact('email','quizId','answer','countQuiz','persen')).view('layout.footer');   
-    }  
-     public function chartrev(Request $request){   
-        
-          if(($request->iCheck !=null)&&($request->email !=null)){
-               $email = $request->email;
-               $iCheck  = $request->iCheck;   
+          ];
+          return view('layout.header',compact('email')).view('chart',compact('email','quizId','answer','countQuiz','persen')).view('layout.footer');
+    }
+     public function chartrev(Request $request){
+
+          if(($request->iCheck !=null)&&($request->role !=null)){
+               $email = session('email');
+
+               $role = $request->role;
+               $iCheck  = $request->iCheck;
                foreach($iCheck as $quizId =>$answer){
                     /*echo $quizId;
                     echo $answer;
                     echo '<br>';*/
                     Exam::updateOrCreate(
-                         ['quizId' => $quizId, 'email' => $email],
+                         ['quizId' => $quizId, 'email' => $email, 'role' => $role],
                          ['answer' => $answer]
-                    );    
+                    );
                }
-          }  
+          }
           //dd($request->iCheck[2]);
-              
-          $countQuiz =  Quiz::all()->count();
+
+          $countQuiz =  Quiz::all()->where('role', $role)->count();
           $sangat_baik = 0;
           $baik     = 0;
           $cukup    = 0;
           $buruk    = 0;
           $sangat_buruk = 0;
-          $exam = DB::table('exam')->select('*')->where('email', $email)->get(); 
+          $exam = DB::table('exam')->select('*')->where('email', $email)->get();
           $charts = [];
           $quizId =[];
           $answer =[];
@@ -114,25 +146,25 @@ class SurveyController extends Controller{
                'cukup'        => ($cukup / $countQuiz) *100,
                'buruk'        => ($buruk / $countQuiz) *100,
                'sangat_buruk' => ($sangat_buruk / $countQuiz) *100
-          ];         
-          return view('layout.header',compact('email')).view('chart',compact('email','quizId','answer','countQuiz','persen')).view('layout.footer');   
-    }  
+          ];
+          return view('layout.header',compact('email')).view('chart',compact('email','quizId','answer','countQuiz','persen')).view('layout.footer');
+    }
 
-     public function quiz(Request $request){   
+     public function quiz(Request $request){
           $email = ($request->email !=null)? $request->email:'';
           $id  = ($request->id !=null)? $request->id:'';
-          $quiz = DB::table('quiz')->select('*')->where('id',$id)->first();  
+          $quiz = DB::table('quiz')->select('*')->where('id',$id)->first();
           $exam = DB::table('exam')->select('*')->where('quizId',$id)->where('email',$email)->get()->toArray();
-          echo json_encode(['quiz'=>$quiz,'exam'=>$exam]) ;  
+          echo json_encode(['quiz'=>$quiz,'exam'=>$exam]) ;
     }
-     public function answer(Request $request){   
+     public function answer(Request $request){
           $email = ($request->email !=null)? $request->email:'';
-          $id  = ($request->id !=null)? $request->id:'';     
+          $id  = ($request->id !=null)? $request->id:'';
           Exam::updateOrCreate(
                ['quizId' => $request->id, 'email' => $email],
                ['answer' => $request->answer]
-          );       
-             
+          );
+
           echo 1;
     }
 
