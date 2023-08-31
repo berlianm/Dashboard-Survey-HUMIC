@@ -41,7 +41,7 @@ CREATE TABLE `exam` (
 -- Dumping data untuk tabel `exam`
 --
 
-INSERT INTO `exam` (`id`, `email`, `quizId`, `answer`, `created_at`, `updated_at`) VALUES
+INSERT INTO `exam` (`id`, `email`, `quizId`, `answer`, `created_at`, `updated_at`, 'role') VALUES
 (1, 'pindankmentah@gmail.com', '1', 5, '2023-07-17 08:26:05', '2023-07-17 08:39:52', 'MAHASISWA'),
 (2, 'pindankmentah@gmail.com', '2', 5, '2023-07-17 08:26:22', '2023-07-17 08:39:54', 'MAHASISWA'),
 (3, 'pindankmentah@gmail.com', '3', 5, '2023-07-17 08:26:26', '2023-07-17 08:39:56', 'MAHASISWA'),
@@ -155,7 +155,7 @@ CREATE TABLE `quiz` (
 -- Dumping data untuk tabel `quiz`
 --
 
-INSERT INTO `quiz` (`id`, `quiz`, `description`, `created_at`, `updated_at`) VALUES
+INSERT INTO `quiz` (`id`, `quiz`, `description`, `created_at`, `updated_at`, `role`) VALUES
 (1, 'Apakah Anda merasa puas dengan pelayanan yang diberikan oleh tim kami?', '', '2023-07-17 06:26:30', '2023-07-17 06:26:30', 'MAHASISWA'),
 (2, 'Seberapa responsif tim kami dalam menanggapi pertanyaan atau permintaan Anda?', '', '2023-07-17 06:26:30', '2023-07-17 06:26:30', 'MAHASISWA'),
 (3, 'Bagaimana pendapat Anda mengenai kejelasan dan keakuratan informasi yang diberikan oleh tim kami?', '', '2023-07-17 06:26:30', '2023-07-17 06:26:30', 'MAHASISWA'),
