@@ -84,6 +84,16 @@
                                     </div>
                                 </div><!-- sign-wrapper -->
                             </form>
+                            @if($email === 'admin@gmail.com')
+                            <form class="" method="POST" action="{{ route('survey.chartAdmin') }}">
+                                @csrf
+                                <div class="sign-wrapper">
+                                    <div class="wd-80p mt-2">
+                                        <button type="submit" class="btn btn-brand-02 btn-block custom-btn"><strong>ADMIN</strong></button>
+                                    </div>
+                                </div><!-- sign-wrapper -->
+                            </form>
+                            @endif
                         </div>
                     </div><!-- media -->
                 </div>

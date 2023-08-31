@@ -27,6 +27,21 @@
                 <a href="{{url('/')}}" class="btn btn-sm pd-x-15 custom-btn btn-uppercase mg-l-5">Kembali</a>
               </div>
             </div>
+
+            <form class="" method="POST" action="{{ route('survey.chartNew') }}">
+                    @csrf
+                    <div class="form-group"> <!-- Date input -->
+                        <label class="control-label" for="tanggal_awal">From : </label>
+                        <input class="form-control" id="tanggal_awal" name="tanggal_awal" placeholder="YYYY-MM-DD" type="text"/>
+                    </div>
+                    <div class="form-group"> <!-- Date input -->
+                        <label class="control-label" for="tanggal_akhir">to :</label>
+                        <input class="form-control" id="tanggal_akhir" name="tanggal_akhir" placeholder="YYYY-MM-DD" type="text"/>
+                    </div>
+                    <div class="form-group"> <!-- Submit button -->
+                        <button class="btn custom-btn " name="submit" type="submit">Simpan</button>
+                    </div>
+            </form>
             <div class="row row-xs">
                 <div class="col-lg-4 col-xl-6 mg-t-10">
                     <div class="card">

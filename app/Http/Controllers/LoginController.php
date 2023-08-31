@@ -17,7 +17,4 @@ class LoginController extends Controller
         return view('login');
     }
 
-    public function role(){
-        return view('role');
-    }
 }

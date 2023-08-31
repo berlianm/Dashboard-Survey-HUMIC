@@ -25,7 +25,9 @@ Route::post('/surveyrev', [SurveyController::class,'indexrev'])->name('survey.in
 Route::post('/quiz', [SurveyController::class,'quiz'])->name('survey.quiz');
 Route::post('/answer', [SurveyController::class,'answer'])->name('survey.answer');
 Route::post('/getid', [SurveyController::class,'getid'])->name('survey.getid');
-Route::post('/chartrev/', [SurveyController::class,'chartrev'])->name('survey.chartrev');
+Route::post('/chartrev', [SurveyController::class,'chartrev'])->name('survey.chartrev');
+Route::post('/Admin', [SurveyController::class,'chartAdmin'])->name('survey.chartAdmin');
+Route::post('/chartNew', [SurveyController::class,'chartNew'])->name('survey.chartNew');
 
 Route::get('/chart/{id}', [SurveyController::class,'chart'])->name('survey.chart');
 
