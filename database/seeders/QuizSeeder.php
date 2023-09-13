@@ -18,7 +18,7 @@ class QuizSeeder extends Seeder
     {
         Quiz::create([            
             'quiz' => 'Bagaimana kondisi gigi anda',
-            'description' => ''            
+            'description' => ''         
         ]);
         Quiz::create([            
             'quiz' => 'Bagaimana kondisi puskesmas di tempat anda',
@@ -26,15 +26,15 @@ class QuizSeeder extends Seeder
         ]);
         Quiz::create([            
             'quiz' => 'Bagaimana pelayanan puskesmas di tempat anda',
-            'description' => ''            
+            'description' => ''          
         ]);              
          Quiz::create([            
             'quiz' => 'Bagaimana kondisi parkiran puskesmas di tempat anda',
-            'description' => ''            
+            'description' => ''           
         ]);
         Quiz::create([            
             'quiz' => 'Bagaimana pelayanan kantin puskesmas di tempat anda',
-            'description' => ''            
+            'description' => ''          
         ]);         
     }
 }

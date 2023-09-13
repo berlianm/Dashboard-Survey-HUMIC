@@ -176,6 +176,7 @@ class SurveyController extends Controller{
           // }
           // //dd($request->iCheck[2]);
           $email = session('email');
+
           $countQuiz =  Quiz::all()->count();
           $sangat_baik = 0;
           $baik     = 0;
@@ -205,6 +206,111 @@ class SurveyController extends Controller{
           ];
           return view('layout.header',compact('email')).view('chart',compact('email','quizId','answer','countQuiz','persen')).view('layout.footer');
     }
+
+    public function chartAdminDosen(Request $request){
+          $email = session('email');
+
+          $dosenData = Exam::where('role', 'DOSEN')->get();
+
+          $countQuiz =  Quiz::all()->count();
+          $sangat_baik = 0;
+          $baik     = 0;
+          $cukup    = 0;
+          $buruk    = 0;
+          $sangat_buruk = 0;
+          //$exam = DB::table('exam')->select('*')->get();
+          $charts = [];
+          $quizId =[];
+          $answer =[];
+          foreach ($dosenData as $ex) {
+               $quizId[]= ($ex->quizId)?$ex->quizId:'';
+               $answer[]= ($ex->answer)?$ex->answer:'';
+               if($ex->answer==5){$sangat_baik++;}
+               if($ex->answer==4){$baik++;}
+               if($ex->answer==3){$cukup++;}
+               if($ex->answer==2){$buruk++;}
+               if($ex->answer==1){$sangat_buruk++;}
+
+          }
+          $persen =[
+               'sangat_baik'  => ($sangat_baik / $countQuiz) *100,
+               'baik'         => ($baik / $countQuiz) *100,
+               'cukup'        => ($cukup / $countQuiz) *100,
+               'buruk'        => ($buruk / $countQuiz) *100,
+               'sangat_buruk' => ($sangat_buruk / $countQuiz) *100
+          ];
+          return view('layout.header',compact('email')).view('chart',compact('email','quizId','answer','countQuiz','persen')).view('layout.footer');
+     }
+
+     public function chartAdminMahasiswa(Request $request){
+          $email = session('email');
+
+          $mahasiswaData = Exam::where('role', 'MAHASISWA')->get();
+
+          $countQuiz =  Quiz::all()->count();
+          $sangat_baik = 0;
+          $baik     = 0;
+          $cukup    = 0;
+          $buruk    = 0;
+          $sangat_buruk = 0;
+          //$exam = DB::table('exam')->select('*')->get();
+          $charts = [];
+          $quizId =[];
+          $answer =[];
+          foreach ($mahasiswaData as $ex) {
+               $quizId[]= ($ex->quizId)?$ex->quizId:'';
+               $answer[]= ($ex->answer)?$ex->answer:'';
+               if($ex->answer==5){$sangat_baik++;}
+               if($ex->answer==4){$baik++;}
+               if($ex->answer==3){$cukup++;}
+               if($ex->answer==2){$buruk++;}
+               if($ex->answer==1){$sangat_buruk++;}
+
+          }
+          $persen =[
+               'sangat_baik'  => ($sangat_baik / $countQuiz) *100,
+               'baik'         => ($baik / $countQuiz) *100,
+               'cukup'        => ($cukup / $countQuiz) *100,
+               'buruk'        => ($buruk / $countQuiz) *100,
+               'sangat_buruk' => ($sangat_buruk / $countQuiz) *100
+          ];
+          return view('layout.header',compact('email')).view('chart',compact('email','quizId','answer','countQuiz','persen')).view('layout.footer');
+     }
+
+     public function chartAdminTamu(Request $request){
+          $email = session('email');
+
+          $tamuData = Exam::where('role', 'TAMU')->get();
+
+          $countQuiz =  Quiz::all()->count();
+          $sangat_baik = 0;
+          $baik     = 0;
+          $cukup    = 0;
+          $buruk    = 0;
+          $sangat_buruk = 0;
+          //$exam = DB::table('exam')->select('*')->get();
+          $charts = [];
+          $quizId =[];
+          $answer =[];
+          foreach ($tamuData as $ex) {
+               $quizId[]= ($ex->quizId)?$ex->quizId:'';
+               $answer[]= ($ex->answer)?$ex->answer:'';
+               if($ex->answer==5){$sangat_baik++;}
+               if($ex->answer==4){$baik++;}
+               if($ex->answer==3){$cukup++;}
+               if($ex->answer==2){$buruk++;}
+               if($ex->answer==1){$sangat_buruk++;}
+
+          }
+          $persen =[
+               'sangat_baik'  => ($sangat_baik / $countQuiz) *100,
+               'baik'         => ($baik / $countQuiz) *100,
+               'cukup'        => ($cukup / $countQuiz) *100,
+               'buruk'        => ($buruk / $countQuiz) *100,
+               'sangat_buruk' => ($sangat_buruk / $countQuiz) *100
+          ];
+          return view('layout.header',compact('email')).view('chart',compact('email','quizId','answer','countQuiz','persen')).view('layout.footer');
+     }
 
      public function chartNew(Request $request){
 

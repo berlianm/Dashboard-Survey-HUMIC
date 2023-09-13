@@ -161,7 +161,7 @@ INSERT INTO `quiz` (`id`, `quiz`, `description`, `created_at`, `updated_at`, `ro
 (3, 'Bagaimana pendapat Anda mengenai kejelasan dan keakuratan informasi yang diberikan oleh tim kami?', '', '2023-07-17 06:26:30', '2023-07-17 06:26:30', 'MAHASISWA'),
 (4, 'Apakah Anda merasa diperlakukan dengan ramah dan sopan oleh staf kami?', '', '2023-07-17 06:26:30', '2023-07-17 06:26:30', 'MAHASISWA'),
 (5, 'Seberapa efektif solusi yang diberikan oleh tim kami dalam menyelesaikan masalah atau kebutuhan Anda?', '', '2023-07-17 06:26:30', '2023-07-17 06:26:30', 'MAHASISWA'),
-(6, 'test tamu', '', NULL, NULL, 'TAMU');
+(6, 'test tamu', '', NULL, NULL, 'TAMU'),
 (7, 'test dosen', '', NULL, NULL, 'DOSEN');
 
 -- --------------------------------------------------------
@@ -178,7 +178,8 @@ CREATE TABLE `users` (
   `password` varchar(255) NOT NULL,
   `remember_token` varchar(100) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `role` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
