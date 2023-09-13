@@ -56,7 +56,7 @@
                     <h3 class="text-center"><strong>SURVEY DASHBOARD</strong></h3>
                     <div class="media align-items-stretch justify-content-center ht-100p pos-relative">
                         <div class="text-center">
-                            <form class="" method="POST" action="{{ route('survey.roleDosen') }}">
+                            <form class="" method="POST" action="{{ session('email') === 'admin@gmail.com' ? route('survey.adminDosen') : route('survey.roleDosen') }}">
                                 @csrf
                                 <div class="sign-wrapper ">
                                     <div class="wd-80p mt-2">
@@ -65,7 +65,7 @@
                                     </div>
                                 </div><!-- sign-wrapper -->
                             </form>
-                            <form class="" method="POST" action="{{ route('survey.roleMahasiswa') }}">
+                            <form class="" method="POST" action="{{ session('email') === 'admin@gmail.com' ? route('survey.adminMahasiswa') : route('survey.roleMahasiswa') }}">
                                 @csrf
                                 <div class="sign-wrapper ">
                                     <div class="wd-80p mt-2">
@@ -75,7 +75,7 @@
                                     </div>
                                 </div><!-- sign-wrapper -->
                             </form>
-                            <form class="" method="POST" action="{{ route('survey.roleTamu') }}">
+                            <form class="" method="POST" action="{{ session('email') === 'admin@gmail.com' ? route('survey.adminTamu') : route('survey.roleTamu') }}">
                                 @csrf
                                 <div class="sign-wrapper ">
                                     <div class="wd-80p mt-2">
@@ -89,7 +89,7 @@
                                 @csrf
                                 <div class="sign-wrapper">
                                     <div class="wd-80p mt-2">
-                                        <button type="submit" class="btn btn-brand-02 btn-block custom-btn"><strong>ADMIN</strong></button>
+                                        <button type="submit" class="btn btn-brand-02 btn-block custom-btn"><strong>ALL</strong></button>
                                     </div>
                                 </div><!-- sign-wrapper -->
                             </form>
