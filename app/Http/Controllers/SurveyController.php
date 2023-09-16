@@ -16,11 +16,15 @@ class SurveyController extends Controller{
           if($request->email !=null){
                $email = $request->email;
                session(['email' => $email]);
-               return view('role', compact('email'));
+
+               if ($email === 'admin@gmail.com') {
+                    return redirect()->route('survey.chartAdmin');
+               } else {
+                    return view('role', compact('email'));
+               }
           }else{
                return back()->with('error', 'Harap masukkan data anda kembali!.');
           }
-
     }
 
     public function roleDosen(){
@@ -104,8 +108,6 @@ class SurveyController extends Controller{
           }else{
                return back()->with('error', 'Anda Bukan Admin, silahkan pilih role lain');
           }
-
-          
     }
 
      public function chartrev(Request $request){
@@ -158,23 +160,6 @@ class SurveyController extends Controller{
     }
 
     public function chartAdmin(Request $request){
-
-          // if(($request->iCheck !=null)&&($request->role !=null)){
-          //      $email = session('email');
-
-          //      $role = $request->role;
-          //      $iCheck  = $request->iCheck;
-          //      foreach($iCheck as $quizId =>$answer){
-          //           /*echo $quizId;
-          //           echo $answer;
-          //           echo '<br>';*/
-          //           Exam::updateOrCreate(
-          //                ['quizId' => $quizId, 'email' => $email, 'role' => $role],
-          //                ['answer' => $answer]
-          //           );
-          //      }
-          // }
-          // //dd($request->iCheck[2]);
           $email = session('email');
 
           $countQuiz =  Quiz::all()->count();
@@ -204,8 +189,8 @@ class SurveyController extends Controller{
                'buruk'        => ($buruk / $countQuiz) *100,
                'sangat_buruk' => ($sangat_buruk / $countQuiz) *100
           ];
-          return view('layout.header',compact('email')).view('chart',compact('email','quizId','answer','countQuiz','persen')).view('layout.footer');
-    }
+          return view('layout.header',compact('email')).view('chartadmin',compact('email','quizId','answer','countQuiz','persen')).view('layout.footer');
+     }
 
     public function chartAdminDosen(Request $request){
           $email = session('email');
@@ -239,7 +224,7 @@ class SurveyController extends Controller{
                'buruk'        => ($buruk / $countQuiz) *100,
                'sangat_buruk' => ($sangat_buruk / $countQuiz) *100
           ];
-          return view('layout.header',compact('email')).view('chart',compact('email','quizId','answer','countQuiz','persen')).view('layout.footer');
+          return view('layout.header',compact('email')).view('chartadmin',compact('email','quizId','answer','countQuiz','persen')).view('layout.footer');
      }
 
      public function chartAdminMahasiswa(Request $request){
@@ -274,7 +259,7 @@ class SurveyController extends Controller{
                'buruk'        => ($buruk / $countQuiz) *100,
                'sangat_buruk' => ($sangat_buruk / $countQuiz) *100
           ];
-          return view('layout.header',compact('email')).view('chart',compact('email','quizId','answer','countQuiz','persen')).view('layout.footer');
+          return view('layout.header',compact('email')).view('chartadmin',compact('email','quizId','answer','countQuiz','persen')).view('layout.footer');
      }
 
      public function chartAdminTamu(Request $request){
@@ -309,7 +294,7 @@ class SurveyController extends Controller{
                'buruk'        => ($buruk / $countQuiz) *100,
                'sangat_buruk' => ($sangat_buruk / $countQuiz) *100
           ];
-          return view('layout.header',compact('email')).view('chart',compact('email','quizId','answer','countQuiz','persen')).view('layout.footer');
+          return view('layout.header',compact('email')).view('chartadmin',compact('email','quizId','answer','countQuiz','persen')).view('layout.footer');
      }
 
      public function chartNew(Request $request){

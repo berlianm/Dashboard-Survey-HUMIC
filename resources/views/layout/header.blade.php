@@ -89,8 +89,9 @@
     <header class="navbar navbar-header navbar-header-fixed">
         <a href="" id="mainMenuOpen" class="burger-menu"><i data-feather="menu"></i></a>
         <div class="navbar-brand">
+            @if($email != 'admin@gmail.com')
             <a href="#" class="aside-logo">HUMIC Engineering <span style="color: #B90000">Telkom University</span></a>
-        </div><!-- navbar-brand -->
+            @endif        </div><!-- navbar-brand -->
         <div class="navbar-right">       
         <a >{{$email}}</a>     
         
