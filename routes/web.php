@@ -26,10 +26,12 @@ Route::post('/quiz', [SurveyController::class,'quiz'])->name('survey.quiz');
 Route::post('/answer', [SurveyController::class,'answer'])->name('survey.answer');
 Route::post('/getid', [SurveyController::class,'getid'])->name('survey.getid');
 Route::post('/chartrev', [SurveyController::class,'chartrev'])->name('survey.chartrev');
-Route::post('/Admin', [SurveyController::class,'chartAdmin'])->name('survey.chartAdmin');
-Route::post('/AdminDosen', [SurveyController::class,'chartAdminDosen'])->name('survey.adminDosen');
-Route::post('/AdminMahasiswa', [SurveyController::class,'chartAdminMahasiswa'])->name('survey.adminMahasiswa');
-Route::post('/AdminTamu', [SurveyController::class,'chartAdminTamu'])->name('survey.adminTamu');
+
+Route::get('/Admin', [SurveyController::class,'chartAdmin'])->name('survey.chartAdmin');
+Route::get('/AdminDosen', [SurveyController::class,'chartAdminDosen'])->name('survey.adminDosen');
+Route::get('/AdminMahasiswa', [SurveyController::class,'chartAdminMahasiswa'])->name('survey.adminMahasiswa');
+Route::get('/AdminTamu', [SurveyController::class,'chartAdminTamu'])->name('survey.adminTamu');
+
 Route::post('/chartNew', [SurveyController::class,'chartNew'])->name('survey.chartNew');
 
 Route::get('/chart/{id}', [SurveyController::class,'chart'])->name('survey.chart');
