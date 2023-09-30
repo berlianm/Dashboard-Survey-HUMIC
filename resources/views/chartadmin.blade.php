@@ -103,8 +103,8 @@ $(document).ready(function() {
     var areaChartData = {
         //labels: ['Quiz 1', 'Quiz 2', 'Quiz 3', 'Quiz 4', 'Quiz 5', 'Quiz 6', 'Quiz 7'],
         labels: [
-            @if($quizId)
-            @foreach($quizId as $q)
+            @if($chartNumber)
+            @foreach($chartNumber as $q)
             'No. {{$q}}',
             @endforeach
             @endif
@@ -119,8 +119,8 @@ $(document).ready(function() {
                 pointHighlightStroke: 'rgba(220,220,220,1)',
                 //data: [5, 4, 3, 4, 5, 2, 4]
                 data: [
-                    @if($answer)
-                    @foreach($answer as $a)
+                    @if($charts)
+                    @foreach($charts as $a)
                     {{$a}},
                     @endforeach
                     @endif
