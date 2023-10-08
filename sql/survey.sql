@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 15 Agu 2023 pada 04.11
--- Versi server: 10.4.28-MariaDB
--- Versi PHP: 8.1.17
+-- Generation Time: Oct 08, 2023 at 04:37 PM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `exam`
+-- Table structure for table `exam`
 --
 
 CREATE TABLE `exam` (
@@ -38,243 +38,80 @@ CREATE TABLE `exam` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `exam`
+-- Dumping data for table `exam`
 --
 
-INSERT INTO `exam` (`id`, `email`, `quizId`, `answer`, `created_at`, `updated_at`, 'role') VALUES
-(1, 'pindankmentah@gmail.com', '1', 5, '2023-07-17 08:26:05', '2023-07-17 08:39:52', 'MAHASISWA'),
-(2, 'pindankmentah@gmail.com', '2', 5, '2023-07-17 08:26:22', '2023-07-17 08:39:54', 'MAHASISWA'),
-(3, 'pindankmentah@gmail.com', '3', 5, '2023-07-17 08:26:26', '2023-07-17 08:39:56', 'MAHASISWA'),
-(4, 'pindankmentah@gmail.com', '4', 5, '2023-07-17 08:26:29', '2023-07-17 08:32:06', 'MAHASISWA'),
-(5, 'pindankmentah@gmail.com', '5', 5, '2023-07-17 08:26:41', '2023-07-17 08:40:01', 'MAHASISWA'),
-(6, 'bmsehatno@gmail.com', '1', 1, '2023-07-17 09:40:15', '2023-07-17 09:48:19', 'MAHASISWA'),
-(7, 'bmsehatno@gmail.com', '2', 3, '2023-07-17 09:40:18', '2023-07-17 09:40:18', 'MAHASISWA'),
-(8, 'bmsehatno@gmail.com', '3', 3, '2023-07-17 09:40:22', '2023-07-17 09:40:22', 'MAHASISWA'),
-(9, 'bmsehatno@gmail.com', '4', 2, '2023-07-17 09:40:25', '2023-07-17 09:40:25', 'MAHASISWA'),
-(10, 'bmsehatno@gmail.com', '5', 1, '2023-07-17 09:40:28', '2023-07-17 09:40:28', 'MAHASISWA'),
-(11, 'asyu@gmail.com', '1', 4, '2023-07-18 06:52:20', '2023-07-27 10:09:54', 'MAHASISWA'),
-(12, 'asyu@gmail.com', '2', 4, '2023-07-18 06:52:20', '2023-07-27 10:09:54', 'MAHASISWA'),
-(13, 'asyu@gmail.com', '3', 4, '2023-07-18 06:52:20', '2023-07-24 03:02:01', 'MAHASISWA'),
-(14, 'asyu@gmail.com', '4', 4, '2023-07-18 06:52:20', '2023-07-24 03:02:01', 'MAHASISWA'),
-(15, 'asyu@gmail.com', '5', 2, '2023-07-18 06:52:20', '2023-07-27 10:09:54', 'MAHASISWA'),
-(16, 'asyu@gmail.com', '6', 3, '2023-07-24 02:53:02', '2023-07-24 03:00:30', 'MAHASISWA'),
-(17, 'test1@gmail.com', '1', 4, '2023-07-31 20:09:33', '2023-07-31 20:09:33', 'MAHASISWA'),
-(18, 'test1@gmail.com', '2', 4, '2023-07-31 20:09:33', '2023-07-31 20:09:33', 'MAHASISWA'),
-(19, 'test1@gmail.com', '3', 5, '2023-07-31 20:09:33', '2023-07-31 20:09:33', 'MAHASISWA'),
-(20, 'test1@gmail.com', '4', 3, '2023-07-31 20:09:33', '2023-07-31 20:09:33', 'MAHASISWA'),
-(21, 'test1@gmail.com', '5', 5, '2023-07-31 20:09:33', '2023-07-31 20:09:33', 'MAHASISWA'),
-(22, 'test1@gmail.com', '6', 4, '2023-07-31 20:09:33', '2023-07-31 20:09:33', 'MAHASISWA'),
-(23, 'tamu1@gmail.com', '1', 4, '2023-07-31 20:09:33', '2023-07-31 20:09:33', 'TAMU'),
-(24, 'dosen1@gmail.com', '1', 5, '2023-07-31 20:09:33', '2023-07-31 20:09:33', 'DOSEN'),
-(25, 'tamu2@gmail.com', '1', 5, '2023-07-31 20:09:33', '2023-07-31 20:09:33', 'TAMU');
-
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `failed_jobs`
---
-
-CREATE TABLE `failed_jobs` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `uuid` varchar(255) NOT NULL,
-  `connection` text NOT NULL,
-  `queue` text NOT NULL,
-  `payload` longtext NOT NULL,
-  `exception` longtext NOT NULL,
-  `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `migrations`
---
-
-CREATE TABLE `migrations` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `migration` varchar(255) NOT NULL,
-  `batch` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data untuk tabel `migrations`
---
-
-INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
-(1, '2014_10_12_000000_create_users_table', 1),
-(2, '2014_10_12_100000_create_password_reset_tokens_table', 1),
-(3, '2019_08_19_000000_create_failed_jobs_table', 1),
-(4, '2019_12_14_000001_create_personal_access_tokens_table', 1),
-(5, '2022_06_13_113924_quiz', 1),
-(6, '2022_06_13_113946_exam', 1);
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `password_reset_tokens`
---
-
-CREATE TABLE `password_reset_tokens` (
-  `email` varchar(255) NOT NULL,
-  `token` varchar(255) NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `personal_access_tokens`
---
-
-CREATE TABLE `personal_access_tokens` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `tokenable_type` varchar(255) NOT NULL,
-  `tokenable_id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `token` varchar(64) NOT NULL,
-  `abilities` text DEFAULT NULL,
-  `last_used_at` timestamp NULL DEFAULT NULL,
-  `expires_at` timestamp NULL DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `quiz`
---
-
-CREATE TABLE `quiz` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `quiz` varchar(255) NOT NULL,
-  `description` varchar(255) NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  `role` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data untuk tabel `quiz`
---
-
-INSERT INTO `quiz` (`id`, `quiz`, `description`, `created_at`, `updated_at`, `role`) VALUES
-(1, 'Apakah Anda merasa puas dengan pelayanan yang diberikan oleh tim kami?', '', '2023-07-17 06:26:30', '2023-07-17 06:26:30', 'MAHASISWA'),
-(2, 'Seberapa responsif tim kami dalam menanggapi pertanyaan atau permintaan Anda?', '', '2023-07-17 06:26:30', '2023-07-17 06:26:30', 'MAHASISWA'),
-(3, 'Bagaimana pendapat Anda mengenai kejelasan dan keakuratan informasi yang diberikan oleh tim kami?', '', '2023-07-17 06:26:30', '2023-07-17 06:26:30', 'MAHASISWA'),
-(4, 'Apakah Anda merasa diperlakukan dengan ramah dan sopan oleh staf kami?', '', '2023-07-17 06:26:30', '2023-07-17 06:26:30', 'MAHASISWA'),
-(5, 'Seberapa efektif solusi yang diberikan oleh tim kami dalam menyelesaikan masalah atau kebutuhan Anda?', '', '2023-07-17 06:26:30', '2023-07-17 06:26:30', 'MAHASISWA'),
-(6, 'test tamu', '', NULL, NULL, 'TAMU'),
-(7, 'test dosen', '', NULL, NULL, 'DOSEN');
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `users`
---
-
-CREATE TABLE `users` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `email_verified_at` timestamp NULL DEFAULT NULL,
-  `password` varchar(255) NOT NULL,
-  `remember_token` varchar(100) DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  `role` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+INSERT INTO `exam` (`id`, `email`, `quizId`, `answer`, `created_at`, `updated_at`, `role`) VALUES
+(23, 'aa@gmail.com', '1', 5, '2023-09-13 20:29:01', '2023-09-13 20:29:01', 'MAHASISWA'),
+(24, 'aa@gmail.com', '2', 4, '2023-09-13 20:29:01', '2023-09-13 20:29:01', 'MAHASISWA'),
+(25, 'aa@gmail.com', '3', 3, '2023-09-13 20:29:01', '2023-09-13 20:29:01', 'MAHASISWA'),
+(26, 'aa@gmail.com', '4', 2, '2023-09-13 20:29:01', '2023-09-13 20:29:01', 'MAHASISWA'),
+(27, 'aa@gmail.com', '5', 1, '2023-09-13 20:29:01', '2023-09-13 20:29:01', 'MAHASISWA'),
+(28, 'aa@gmail.com', '6', 3, '2023-09-13 20:29:01', '2023-09-13 20:29:01', 'MAHASISWA'),
+(29, 'aa@gmail.com', '7', 2, '2023-09-13 20:29:01', '2023-09-13 20:29:01', 'MAHASISWA'),
+(30, 'aa@gmail.com', '8', 2, '2023-09-13 20:29:01', '2023-09-13 20:29:01', 'MAHASISWA'),
+(31, 'aa@gmail.com', '9', 5, '2023-09-13 20:29:01', '2023-09-13 20:29:01', 'MAHASISWA'),
+(32, 'aa@gmail.com', '10', 5, '2023-09-13 20:29:01', '2023-09-13 20:29:01', 'MAHASISWA'),
+(33, 'bb@gmail.com', '1', 3, '2023-09-13 20:36:12', '2023-09-13 20:36:12', 'TAMU'),
+(34, 'bb@gmail.com', '2', 4, '2023-09-13 20:36:12', '2023-09-13 20:36:12', 'TAMU'),
+(35, 'bb@gmail.com', '3', 5, '2023-09-13 20:36:12', '2023-09-13 20:36:12', 'TAMU'),
+(36, 'bb@gmail.com', '4', 2, '2023-09-13 20:36:12', '2023-09-13 20:36:12', 'TAMU'),
+(37, 'bb@gmail.com', '5', 4, '2023-09-13 20:36:12', '2023-09-13 20:36:12', 'TAMU'),
+(38, 'bb@gmail.com', '6', 5, '2023-09-13 20:36:12', '2023-09-13 20:36:12', 'TAMU'),
+(39, 'bb@gmail.com', '7', 5, '2023-09-13 20:36:12', '2023-09-13 20:36:12', 'TAMU'),
+(40, 'bb@gmail.com', '8', 5, '2023-09-13 20:36:12', '2023-09-13 20:36:12', 'TAMU'),
+(41, 'bb@gmail.com', '9', 3, '2023-09-13 20:36:12', '2023-09-13 20:36:12', 'TAMU'),
+(42, 'bb@gmail.com', '10', 1, '2023-09-13 20:36:12', '2023-09-13 20:36:12', 'TAMU'),
+(43, 'eric@gmail.com', '1', 5, '2023-09-28 00:25:20', '2023-09-28 00:25:20', 'MAHASISWA'),
+(44, 'eric@gmail.com', '2', 5, '2023-09-28 00:25:20', '2023-09-28 00:25:20', 'MAHASISWA'),
+(45, 'eric@gmail.com', '3', 5, '2023-09-28 00:25:20', '2023-09-28 00:25:20', 'MAHASISWA'),
+(46, 'eric@gmail.com', '4', 2, '2023-09-28 00:25:20', '2023-09-28 00:25:20', 'MAHASISWA'),
+(47, 'eric@gmail.com', '5', 4, '2023-09-28 00:25:20', '2023-09-28 00:25:20', 'MAHASISWA'),
+(48, 'eric@gmail.com', '6', 5, '2023-09-28 00:25:20', '2023-09-28 00:25:20', 'MAHASISWA'),
+(49, 'eric@gmail.com', '7', 1, '2023-09-28 00:25:20', '2023-09-28 00:25:20', 'MAHASISWA'),
+(50, 'eric@gmail.com', '8', 2, '2023-09-28 00:25:20', '2023-09-28 00:25:20', 'MAHASISWA'),
+(51, 'eric@gmail.com', '9', 3, '2023-09-28 00:25:20', '2023-09-28 00:25:20', 'MAHASISWA'),
+(52, 'eric@gmail.com', '10', 4, '2023-09-28 00:25:20', '2023-09-28 00:25:20', 'MAHASISWA'),
+(71, 'berlian@gmail.com', '1', 1, '2023-10-08 07:36:08', '2023-10-08 07:36:08', 'MAHASISWA'),
+(72, 'berlian@gmail.com', '2', 4, '2023-10-08 07:36:08', '2023-10-08 07:36:08', 'MAHASISWA'),
+(73, 'berlian@gmail.com', '3', 3, '2023-10-08 07:36:08', '2023-10-08 07:36:08', 'MAHASISWA'),
+(74, 'berlian@gmail.com', '4', 3, '2023-10-08 07:36:08', '2023-10-08 07:36:08', 'MAHASISWA'),
+(75, 'berlian@gmail.com', '5', 1, '2023-10-08 07:36:08', '2023-10-08 07:36:08', 'MAHASISWA'),
+(76, 'berlian@gmail.com', '6', 3, '2023-10-08 07:36:08', '2023-10-08 07:36:08', 'MAHASISWA'),
+(77, 'berlian@gmail.com', '7', 5, '2023-10-08 07:36:08', '2023-10-08 07:36:08', 'MAHASISWA'),
+(78, 'berlian@gmail.com', '8', 3, '2023-10-08 07:36:08', '2023-10-08 07:36:08', 'MAHASISWA'),
+(79, 'berlian@gmail.com', '9', 2, '2023-10-08 07:36:08', '2023-10-08 07:36:08', 'MAHASISWA'),
+(80, 'berlian@gmail.com', '10', 4, '2023-10-08 07:36:08', '2023-10-08 07:36:08', 'MAHASISWA'),
+(81, 'qiuqiu@gmail.com', '1', 3, '2023-10-08 07:37:15', '2023-10-08 07:37:15', 'DOSEN'),
+(82, 'qiuqiu@gmail.com', '2', 1, '2023-10-08 07:37:15', '2023-10-08 07:37:15', 'DOSEN'),
+(83, 'qiuqiu@gmail.com', '3', 3, '2023-10-08 07:37:15', '2023-10-08 07:37:15', 'DOSEN'),
+(84, 'qiuqiu@gmail.com', '4', 4, '2023-10-08 07:37:15', '2023-10-08 07:37:15', 'DOSEN'),
+(85, 'qiuqiu@gmail.com', '5', 5, '2023-10-08 07:37:15', '2023-10-08 07:37:15', 'DOSEN'),
+(86, 'qiuqiu@gmail.com', '6', 5, '2023-10-08 07:37:15', '2023-10-08 07:37:15', 'DOSEN'),
+(87, 'qiuqiu@gmail.com', '7', 5, '2023-10-08 07:37:15', '2023-10-08 07:37:15', 'DOSEN'),
+(88, 'qiuqiu@gmail.com', '8', 4, '2023-10-08 07:37:15', '2023-10-08 07:37:15', 'DOSEN'),
+(89, 'qiuqiu@gmail.com', '9', 2, '2023-10-08 07:37:15', '2023-10-08 07:37:15', 'DOSEN'),
+(90, 'qiuqiu@gmail.com', '10', 5, '2023-10-08 07:37:15', '2023-10-08 07:37:15', 'DOSEN');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indeks untuk tabel `exam`
+-- Indexes for table `exam`
 --
 ALTER TABLE `exam`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `failed_jobs`
---
-ALTER TABLE `failed_jobs`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
-
---
--- Indeks untuk tabel `migrations`
---
-ALTER TABLE `migrations`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indeks untuk tabel `password_reset_tokens`
---
-ALTER TABLE `password_reset_tokens`
-  ADD PRIMARY KEY (`email`);
-
---
--- Indeks untuk tabel `personal_access_tokens`
---
-ALTER TABLE `personal_access_tokens`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `personal_access_tokens_token_unique` (`token`),
-  ADD KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`);
-
---
--- Indeks untuk tabel `quiz`
---
-ALTER TABLE `quiz`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indeks untuk tabel `users`
---
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `users_email_unique` (`email`);
-
---
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `exam`
+-- AUTO_INCREMENT for table `exam`
 --
 ALTER TABLE `exam`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
-
---
--- AUTO_INCREMENT untuk tabel `failed_jobs`
---
-ALTER TABLE `failed_jobs`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT untuk tabel `migrations`
---
-ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
---
--- AUTO_INCREMENT untuk tabel `personal_access_tokens`
---
-ALTER TABLE `personal_access_tokens`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT untuk tabel `quiz`
---
-ALTER TABLE `quiz`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
---
--- AUTO_INCREMENT untuk tabel `users`
---
-ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=91;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

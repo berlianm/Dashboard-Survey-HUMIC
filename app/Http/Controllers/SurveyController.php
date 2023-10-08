@@ -419,6 +419,8 @@ class SurveyController extends Controller{
 
           $email = session('email');
 
+          $allData = Exam::all();
+
           $countQuiz =  Quiz::all()->count();
           $sangat_baik = 0;
           $baik     = 0;
@@ -444,6 +446,31 @@ class SurveyController extends Controller{
                if($ex->answer==1){$sangat_buruk++;}
 
           }
+
+          $chartNumber =[];
+
+          for ($i = 1; $i <= $countQuiz; $i++) {
+                         if (in_array($i, $quizId)) {
+                         $chartNumber[$i]=$i;
+                         }
+                    }
+          $totalElements = count($chartNumber);
+
+          foreach ($quizId as $i) {
+               $tempA = 0;
+               $tempB = 0;
+               
+               foreach ($exam as $ex) {
+                    if ($ex->quizId == $i) {
+                         $tempA += $ex->answer;
+                         $tempB++;
+                    }
+               }
+          
+               $average = ($tempB > 0) ? number_format(($tempA / $tempB), 2) : 0;
+               $charts[$i] = $average;
+          }
+
           $persen =[
                'sangat_baik'  => ($sangat_baik / $countQuiz) *100,
                'baik'         => ($baik / $countQuiz) *100,
@@ -451,7 +478,7 @@ class SurveyController extends Controller{
                'buruk'        => ($buruk / $countQuiz) *100,
                'sangat_buruk' => ($sangat_buruk / $countQuiz) *100
           ];
-          return view('layout.header',compact('email')).view('chart',compact('email','quizId','answer','countQuiz','persen')).view('layout.footer');
+          return view('layout.header',compact('email')).view('chartadmin',compact('email','quizId','answer','countQuiz','persen','chartNumber', 'charts')).view('layout.footer');
     }
 
      public function quiz(Request $request){

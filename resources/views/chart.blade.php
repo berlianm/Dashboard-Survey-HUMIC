@@ -1,15 +1,7 @@
 <div class="content ht-100v pd-0">
-    <div class="content-header">
-        <div class="content-search">
-            <i data-feather="search"></i>
-            <input type="search" class="form-control" placeholder="Search...">
-        </div>
-        <nav class="nav">
-            <a href="" class="nav-link"><i data-feather="help-circle"></i></a>
-            <a href="" class="nav-link"><i data-feather="grid"></i></a>
-            <a href="" class="nav-link"><i data-feather="align-left"></i></a>
-        </nav>
-    </div><!-- content-header -->
+    <br>
+    <br>
+    <br>
     <div class="content-body">
         <div class="container pd-x-0">
             <div class="d-sm-flex align-items-center justify-content-between mg-b-20 mg-lg-b-25 mg-xl-b-30">
@@ -28,20 +20,7 @@
               </div>
             </div>
 
-            <form class="" method="POST" action="{{ route('survey.chartNew') }}">
-                    @csrf
-                    <div class="form-group"> <!-- Date input -->
-                        <label class="control-label" for="tanggal_awal">From : </label>
-                        <input class="form-control" id="tanggal_awal" name="tanggal_awal" placeholder="YYYY-MM-DD" type="text"/>
-                    </div>
-                    <div class="form-group"> <!-- Date input -->
-                        <label class="control-label" for="tanggal_akhir">to :</label>
-                        <input class="form-control" id="tanggal_akhir" name="tanggal_akhir" placeholder="YYYY-MM-DD" type="text"/>
-                    </div>
-                    <div class="form-group"> <!-- Submit button -->
-                        <button class="btn custom-btn " name="submit" type="submit">Simpan</button>
-                    </div>
-            </form>
+            
             <div class="row row-xs">
                 <div class="col-lg-4 col-xl-6 mg-t-10">
                     <div class="card">
